@@ -1,15 +1,15 @@
 import { connect } from 'react-redux'
-const App = ({ count }) => {
+const App = ({ countDayo }) => {
   return (
     <div>
       <h1>Redux Learn</h1>
-      <p>Count:{count}</p>
+      <p>Count:{countDayo}</p>
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
-  return { count: state.count }
+  return { countDayo: state.count }
 }
 
 export default connect(mapStateToProps)(App)
