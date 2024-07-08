@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-const App = ({ countDayo }) => {
+import type { countStateType, AppComponentProps } from './types/types'
+const App = ({ countDayo }: AppComponentProps) => {
   return (
     <div>
       <h1>Redux Learn</h1>
@@ -8,7 +9,7 @@ const App = ({ countDayo }) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: countStateType) => {
   return { countDayo: state.count }
 }
 
