@@ -1,0 +1,18 @@
+# Reduxとは
+
+コンポーネント間のデータの受け渡しの時に、propsを使う。
+- 親子関係にないコンポーネント間は受け渡しができない。
+- コンポーネントの子や孫に渡すには、propsのバケツリレーが必要になってしまう。
+
+データを一元管理するのがRedux
+
+- Reduxではアプリケーション全体で共有するデータを保管する場所が必要になります。その場所はstoreと呼ばれる。（アプリケーションを構成するコンポーネントとは全く独立した場所に作成）。
+- storeの中に共有を行うデータstateが保存される。
+- stateはreducerの中でのみ、変更可能。
+- reducerには初期値ステートとactionが引数に必要で、変更したstateを返すのがreducerの役割。
+- actionはデータの変更の指示が含まれるオブジェクトで、Actionに書かれた指示に従ってreducerがstateに変更を加える。
+- Actionとはtypeプロパティを持っているJavaScriptのオブジェクトである。
+- reducerでは、Actionはtypeプロパティを持つオブジェクトでaction.typeをチェックすることでtypeによって異なる処理を行えるように設定を行う。
+- Actionのtypeによりreducerでどのような処理を行うかを設定した後はActionをreducerに伝える方法が必要。Actionをreducerに伝えるための方法がdispatch関数。dispatch関数の引数にはactionを指定する。
+- dispatch関数を(どこかメソッド内などで)実行することができればreducerに実行したいActionが伝わり、storeの中のデータを変更することが可能。
+- 
