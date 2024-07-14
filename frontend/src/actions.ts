@@ -1,10 +1,8 @@
-export const INCREASE_COUNT = '@@myapp/INCREASE_COUNT'
-export const DECREASE_COUNT = '@@myapp/DECREASE_COUNT'
-export const increaseCount = (amount) => ({
-  type: INCREASE_COUNT,
-  payload: amount,
-})
-export const decreaseCount = (amount) => ({
-  type: DECREASE_COUNT,
-  payload: amount,
-})
+export const getPosts = () => async (dispatch) => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const data = await res.json()
+  dispatch({
+    type: 'GET_POSTS_DATA',
+    payload: data,
+  })
+}
