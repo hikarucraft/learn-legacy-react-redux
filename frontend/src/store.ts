@@ -13,8 +13,19 @@ const postsInitialState: postsStateType = {
 }
 
 //reducer
-const countReducer = (state = countInitialState) => {
-  return state
+const countReducer = (state = countInitialState, action) => {
+  switch (action.type) {
+    case 'INCREASE_COUNT':
+      return {
+        updatedCount: state.count + 1,
+      }
+    case 'DECREASE_COUNT':
+      return {
+        updatedCount: state.count - 1,
+      }
+    default:
+      return state
+  }
 }
 const postsReducer = (state = postsInitialState) => {
   return state
