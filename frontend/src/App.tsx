@@ -1,7 +1,10 @@
 import { connect } from 'react-redux'
 import type { AppComponentProps } from './types/types'
 import { increaseCount, decreaseCount } from './actions'
-const App = ({ countDayo, postsDayo, increase, decrease }) => {
+import { useSelector } from 'react-redux'
+const App = ({ increase, decrease }) => {
+  const countDayo = useSelector((state) => state.countReducer.count)
+  const postsDayo = useSelector((state) => state.postsReducer.posts)
   return (
     <div>
       <h1>Redux Learn</h1>
@@ -21,8 +24,8 @@ const App = ({ countDayo, postsDayo, increase, decrease }) => {
 
 const mapStateToProps = (state: any) => {
   return {
-    countDayo: state.countReducer.count,
-    postsDayo: state.postsReducer.posts,
+    _countDayo: state.countReducer.count,
+    _postsDayo: state.postsReducer.posts,
   }
 }
 const mapDispatchToProps = (dispatch: any) => {
