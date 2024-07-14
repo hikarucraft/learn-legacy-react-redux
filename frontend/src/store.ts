@@ -1,12 +1,16 @@
 import { legacy_createStore as createStore } from 'redux'
-import type { countStateType } from './types/types'
+import type { arrayStateType } from './types/types'
 // state
-const initialState: countStateType = {
+const initialState: arrayStateType = {
   count: 1,
+  posts: [
+    { id: 1, title: 'title1' },
+    { id: 2, title: 'title2' },
+  ],
 }
 
 //reducer
-const reducer = (state: countStateType = initialState) => {
+const reducer = (state: arrayStateType = initialState) => {
   return state
 }
 

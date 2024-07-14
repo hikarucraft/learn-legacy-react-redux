@@ -1,16 +1,21 @@
 import { connect } from 'react-redux'
-import type { countStateType, AppComponentProps } from './types/types'
-const App = ({ countDayo }: AppComponentProps) => {
+import type { AppComponentProps, arrayStateType } from './types/types'
+const App = ({ countDayo, postsDayo }: AppComponentProps) => {
   return (
     <div>
       <h1>Redux Learn</h1>
       <p>Count:{countDayo}</p>
+      <ul>
+        {postsDayo.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
     </div>
   )
 }
 
-const mapStateToProps = (state: countStateType) => {
-  return { countDayo: state.count }
+const mapStateToProps = (state: arrayStateType) => {
+  return { countDayo: state.count, postsDayo: state.posts }
 }
 
 export default connect(mapStateToProps)(App)
