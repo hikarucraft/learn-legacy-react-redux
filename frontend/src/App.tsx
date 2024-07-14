@@ -1,12 +1,15 @@
 import { connect } from 'react-redux'
 import type { AppComponentProps } from './types/types'
+import { increaseCount, decreaseCount } from './actions'
 const App = ({ countDayo, postsDayo, increase, decrease }) => {
   return (
     <div>
       <h1>Redux Learn</h1>
       <p>Count:{countDayo}</p>
-      <button onClick={increase}>Up</button>
-      <button onClick={decrease}>Down</button>
+      <button onClick={(e) => increase(1)}>+1</button>
+      <button onClick={(e) => increase(2)}>+2</button>
+      <button onClick={(e) => decrease(1)}>-1</button>
+      <button onClick={(e) => decrease(2)}>-2</button>
       <ul>
         {postsDayo.map((post) => (
           <li key={post.id}>{post.title}</li>
@@ -24,8 +27,8 @@ const mapStateToProps = (state: any) => {
 }
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    increase: () => dispatch({ type: 'INCREASE_COUNT' }),
-    decrease: () => dispatch({ type: 'DECREASE_COUNT' }),
+    increase: (amount) => dispatch(increaseCount(amount)),
+    decrease: (amount) => dispatch(decreaseCount(amount)),
   }
 }
 
