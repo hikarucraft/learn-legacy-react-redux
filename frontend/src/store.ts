@@ -1,5 +1,6 @@
 import { legacy_createStore as createStore, combineReducers } from 'redux'
 import type { countStateType, postsStateType } from './types/types'
+import { INCREASE_COUNT, DECREASE_COUNT } from './actions'
 // state
 const countInitialState: countStateType = {
   count: 50,
@@ -15,13 +16,13 @@ const postsInitialState: postsStateType = {
 //reducer
 const countReducer = (state = countInitialState, action) => {
   switch (action.type) {
-    case 'INCREASE_COUNT':
+    case INCREASE_COUNT:
       return {
-        count: state.count + 1,
+        count: state.count + action.payload,
       }
-    case 'DECREASE_COUNT':
+    case DECREASE_COUNT:
       return {
-        count: state.count - 1,
+        count: state.count - action.payload,
       }
     default:
       return state
