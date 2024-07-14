@@ -14,8 +14,12 @@ const App = ({ countDayo, postsDayo }: AppComponentProps) => {
   )
 }
 
-const mapStateToProps = (state: arrayStateType) => {
-  return { countDayo: state.count, postsDayo: state.posts }
+const mapStateToProps = (state: any) => {
+  console.log(state)
+  return {
+    countDayo: state.countReducer.count,
+    postsDayo: state.postsReducer.posts,
+  }
 }
 
 export default connect(mapStateToProps)(App)

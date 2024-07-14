@@ -2,6 +2,13 @@ export type countStateType = {
   count: number
 }
 
+export type postsStateType = {
+  posts: {
+    id: number
+    title: string
+  }[]
+}
+
 export type arrayStateType = {
   count: number
   posts: {
