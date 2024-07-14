@@ -1,15 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 const App = () => {
-  const [posts, setPosts] = useState([])
+  const dispatch = useDispatch()
+  const posts = useSelector((state) => state.posts)
 
   useEffect(() => {
     const getPosts = async () => {
       const res = await fetch('https://jsonplaceholder.typicode.com/posts')
       const data = await res.json()
-      setPosts(data)
+      dispatch({
+        type: 'GET_POSTS_DATA',
+        payload: data,
+      })
     }
     getPosts()
-  }, [])
+  }, [dispatch])
 
   return (
     <div>
