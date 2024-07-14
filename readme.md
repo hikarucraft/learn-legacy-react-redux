@@ -17,4 +17,4 @@
 - で、いちいち actionオブジェクトを書くのは大変なので、payloadを引数にして、actionオブジェクトを返すのがactionCreator
 - Actionのtypeによりreducerでどのような処理を行うかを設定した後はActionをreducerに伝える方法が必要。Actionをreducerに伝えるための方法がdispatch関数。dispatch関数の引数にはactionを指定する。
 - dispatch関数を(どこかメソッド内などで)実行することができればreducerに実行したいActionが伝わり、storeの中のデータを変更することが可能。
-- 
+- dispatch関数にはactionオブジェクトを渡すという理解でOK
