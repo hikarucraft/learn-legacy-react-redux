@@ -1,12 +1,6 @@
 import { connect } from 'react-redux'
 import type { AppComponentProps } from './types/types'
-const App = ({ countDayo, postsDayo }: AppComponentProps) => {
-  const increase = () => {
-    dispatch({ type: 'INCREASE_COUNT' })
-  }
-  const decrease = () => {
-    dispatch({ type: 'DECREASE_COUNT' })
-  }
+const App = ({ countDayo, postsDayo, increase, decrease }) => {
   return (
     <div>
       <h1>Redux Learn</h1>
@@ -28,5 +22,11 @@ const mapStateToProps = (state: any) => {
     postsDayo: state.postsReducer.posts,
   }
 }
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    increase: () => dispatch({ type: 'INCREASE_COUNT' }),
+    decrease: () => dispatch({ type: 'DECREASE_COUNT' }),
+  }
+}
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

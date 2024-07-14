@@ -17,11 +17,11 @@ const countReducer = (state = countInitialState, action) => {
   switch (action.type) {
     case 'INCREASE_COUNT':
       return {
-        updatedCount: state.count + 1,
+        count: state.count + 1,
       }
     case 'DECREASE_COUNT':
       return {
-        updatedCount: state.count - 1,
+        count: state.count - 1,
       }
     default:
       return state
